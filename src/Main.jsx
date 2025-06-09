@@ -3,6 +3,7 @@ import React from 'react'
 import Week1 from './components/Week1'
 import { usePathname } from 'next/navigation'
 import Week2 from './components/Week2'
+import Week3 from './components/Week3'
 
 const Main = () => {
     const pathName = usePathname();
@@ -17,6 +18,10 @@ const Main = () => {
             slug: "week-2",
             page: <Week2 />,
         },
+        {
+            slug: "week-3",
+            page: <Week3 />
+        }
     ]
     return (
         <div>
