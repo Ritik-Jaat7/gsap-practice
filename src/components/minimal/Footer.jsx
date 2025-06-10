@@ -66,7 +66,7 @@ const Footer = () => {
     }, [])
 
     return (
-        <div className=' footerHead bg-[#01444F] min-h-screen'>
+        <div id='footer' className=' footerHead bg-[#01444F] min-h-screen'>
             <div className="bg-[#01444F] rounded-b-3xl custom-shadow footerMain ">
                 <div className='max-w-[1180px] container sm:px-5 px-4 mx-auto lg:pb-34 md:pb-12 pb-8 '>
                     <div className="flex lg:flex-row flex-col justify-between gap-7">

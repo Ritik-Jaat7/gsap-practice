@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const imageData = [
     { src: "/assets/images/single-bed.webp", width: 334, height: 500, className: 'w-[334px] h-[500px]' },
-    { src: "/assets/images/study-table.webp", width: 248, height: 325, className: 'w-[248px] h-[325px] mt-[370px]', wrapper: true },
+    { src: "/assets/images/study-table.webp", width: 248, height: 325, className: 'w-[248px] h-[325px] mt-[270px]', wrapper: true },
     { src: "/assets/images/white-chair.webp", width: 162, height: 212, className: 'w-[162px] h-[212px]' },
     { src: "/assets/images/brown-sofa.webp", width: 420, height: 551, className: 'w-[420px] h-[551px] mt-[450px]' },
     { src: "/assets/images/white-lamp.webp", width: 384, height: 503, className: 'w-[384px] h-[503px]' },
@@ -16,11 +16,19 @@ const imageData = [
     { src: "/assets/images/circle-lamp.webp", width: 483, height: 633, className: 'min-w-[483px] h-[633px] mt-[230px]' },
     { src: "/assets/images/book-light.webp", width: 448, height: 588, className: 'min-w-[448px] h-[588px] object-cover mt-[-100px]' },
     { src: "/assets/images/pot.webp", width: 356, height: 467, className: 'w-[356px] h-[467px] ml-[250px] mt-[-70px]', wrapper: true },
-    { src: "/assets/images/office-light.webp", width: 356, height: 467, className: 'w-[356px] h-[467px] mt-[100px]' }
-
+    { src: "/assets/images/office-light.webp", width: 356, height: 467, className: 'w-[356px] h-[467px] mt-[100px] opacity-0' },
+    { src: "/assets/images/two-chairs.webp", width: 248, height: 325, className: 'w-[248px] h-[325px] mt-[100px] opacity-0' },
+    { src: "/assets/images/office-light.webp", width: 334, height: 438, className: 'w-[334px] h-[438px] mt-[100px]' },
+    { src: "/assets/images/two-chairs.webp", width: 248, height: 325, className: 'w-[248px] h-[325px] mt-[550px]', wrapper: true },
+    { src: "/assets/images/gold-biskuts.webp", width: 162, height: 212, className: 'w-[162px] h-[212px] mt-[100px]', wrapper: true, },
+    { src: "/assets/images/chair-table-laptop.webp", width: 420, height: 551, className: 'min-w-[420px] h-[551px] mt-[100px]', },
+    { src: "/assets/images/less-more.webp", width: 334, height: 438, className: 'min-w-[334px] h-[438px] mt-[100px]', },
+    { src: "/assets/images/tech-5.webp", width: 248, height: 325, className: 'min-w-[248px] h-[325px] mt-[520px]', wrapper: true, },
+    { src: "/assets/images/camera.webp", width: 162, height: 212, className: 'min-w-[162px] h-[212px] mt-20', },
+    { src: "/assets/images/digital-watch.webp", width: 420, height: 551, className: 'min-w-[420px] h-[551px] mt-40', },
+    { src: "/assets/images/cycle.webp", width: 420, height: 551, className: 'min-w-[420px] h-[551px]', },
+    { src: "/assets/images/sony.webp", width: 334, height: 438, className: 'min-w-[334px] mt-28 h-[438px] ml-[250px]', wrapper: true, },
 ]
-const firstRowImages = imageData.slice(0, 10);
-const secondRowImages = imageData.slice(10); // Starts from office-light
 
 const Furniture = ({ bgColorRef }) => {
     const headingTexts = ["Furniture", "Decor", "office", "Tech"];
@@ -37,6 +45,7 @@ const Furniture = ({ bgColorRef }) => {
                 scrub: true,
                 pin: true,
                 markers: false,
+                pinSpacer: false,
                 onUpdate: (self) => {
                     const progress = self.progress;
                     let index = Math.floor(progress * (headingTexts.length - 1));
@@ -56,43 +65,7 @@ const Furniture = ({ bgColorRef }) => {
             yPercent: -100,
             duration: 1,
         })
-            .to("body", {
-                backgroundColor: "#2E2A27",
-                delay: 0.01,
-            }, "<")
-            .to(".heading", {
-                color: "#E8E2DA",
-                delay: 0.01,
-            }, "<")
-            .to(".nav-item", {
-                color: "#FFFFFF",
-                delay: 0.01,
-            }, "<")
-            .to(".navBorder", {
-                borderColor: "#FFFFFF",
-                backgroundColor: "#2E2A27",
-                delay: 0.01,
-            }, "<")
-            .to(bgColorRef.current, {
-                fill: "#E8E2DA",
-                delay: 0.01,
-            }, "<")
-            .to("body", {
-                backgroundColor: "#E8E2DA",
-                delay: 0.01,
-            })
-            .to(bgColorRef.current, {
-                fill: "#E8E2DA",
-                delay: 0.01,
-            })
-            .to(".navBorder", {
-                borderColor: "#FFFFFF",
-                backgroundColor: "#2E2A27",
-                delay: 0.01,
-            }, "<")
-
         const boxes = gsap.utils.toArray(".slideImg")
-
         boxes.forEach((img) => {
             gsap.to(img, {
                 yPercent: -50,
@@ -113,7 +86,7 @@ const Furniture = ({ bgColorRef }) => {
         <div className='max-w-[1380px] mx-auto relative furnitureContainer'>
             <h2 className='text-[130px] font-bold absolute left-0 top-0 heading capitalize'>Furniture</h2>
 
-            <div className="grid grid-cols-4 relative z-10 gridImages">
+            <div className="grid grid-cols-4 z-10 gridImages">
                 {imageData.map((item, index) => {
                     const img = (
                         <Image
@@ -122,15 +95,15 @@ const Furniture = ({ bgColorRef }) => {
                             alt={`furniture-${index}`}
                             width={item.width}
                             height={item.height}
-                            className={`${item.className} object-cover slideImg`}
+                            className={`${item.className} object-cover slide hiddenImg`}
                             priority
                         />
-                    )
+                    );
                     return item.wrapper ? (
                         <div key={index} className="flex items-center justify-center h-[325px]">
                             {img}
                         </div>
-                    ) : img
+                    ) : img;
                 })}
             </div>
         </div>
