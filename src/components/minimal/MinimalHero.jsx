@@ -7,6 +7,7 @@ import ZoomImage from './ZoomImage'
 import Travel from './Travel'
 import Furniture from './Furniture'
 import Footer from './Footer'
+import MinimalDesign from './MinimalDesign'
 gsap.registerPlugin(ScrollTrigger)
 
 const MinimalHero = () => {
@@ -27,7 +28,6 @@ const MinimalHero = () => {
         })
 
     }, [])
-
     return (
         <div className="relative">
             <div className='bg-[url(/assets/images/minimal-hero.webp)] bg-no-repeat bg-center bg-cover min-h-screen heroBg'>
