@@ -55,7 +55,7 @@ const Furniture = () => {
         const boxes = gsap.utils.toArray(".slideImg")
         boxes.forEach((img, index) => {
             gsap.to(img, {
-                yPercent: -30,
+                yPercent: -20,
                 scrollTrigger: {
                     trigger: ".furnitureContainer",
                     start: "top 80%",
