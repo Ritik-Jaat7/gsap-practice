@@ -27,14 +27,14 @@ const Discover = () => {
     }, [])
 
     return (
-        <div className='min-h-screen  discoverContainer pb-20'>
-            <div className="pt-32 space-y-4">
+        <div className='lg:min-h-screen min-h-[50vh]  discoverContainer pb-20'>
+            <div className="pt-8 xl:pt-32 space-y-4">
                 {["Discover", "the best in", "minimal", "design"].map((line, index) => (
                     <div
                         key={index}
                         className="overflow-hidden"
                     >
-                        <h2 className={`text-[173px] font-semibold tracking-[-7px] text-white text-center  ${index === 1 ? "!italic !font-medium" : ""} ${index === 3 ? "!leading-[130%]" : "leading-[90%]"} discover-text`}>
+                        <h2 className={`text-[45px] sm:text-6xl xl:text-[173px] font-semibold xl:tracking-[-7px] text-white text-center  ${index === 1 ? "!italic !font-medium" : ""} ${index === 3 ? "!leading-[130%]" : "leading-[90%]"} discover-text`}>
                             {line}
                         </h2>
                     </div>
